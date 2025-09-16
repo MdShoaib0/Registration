@@ -1,1 +1,61 @@
 @import "tailwindcss";
+/* 
+body {
+    background-color: black;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+#btn {
+    width: 150px;
+    height: 50px;
+    border-radius: 100px;
+    position: relative;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+}
+
+#btn::after, #btn::before {
+    content: '';
+    width: 105%;
+    height: 114%;
+    background-image: conic-gradient(from var(--angle), aqua, puchia aqua);
+    z-index: -1;
+    background-size: 600%;
+    border: none;
+    position: absolute;
+    border-radius: 1000px;
+    animation: AnimateButton 2s ease-in-out infinite;
+}
+
+#btn::before {
+    z-index: -2;
+    color: white;
+    filter: blur(20px);
+}
+
+#btn:hover {
+    color: white;
+}
+
+@keyframes AnimateButton {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+#btn:hover {
+    background: transparent;
+} */
