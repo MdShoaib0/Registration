@@ -7,7 +7,7 @@ import ContactPage from './pages/ContactPage';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/ScrollSmoother'; // ✅ Requires Club GreenSock
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 function App() {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -17,7 +17,7 @@ function App() {
     const smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
-      smooth: 2,
+      smooth: 3,
       effects: true
     });
 
