@@ -1,5 +1,6 @@
 import { Star } from 'lucide-react'
 import React from 'react'
+import ServiceCard from '../components/ServiceCard'
 
 function ServicePage() {
   return (
@@ -13,8 +14,13 @@ function ServicePage() {
             <p className='text-xl leading-9 text-slate-600 md:mx-92'>Comprehensive digital solutions tailored to bring your ideas to life with precision and creativity</p>
           </div>
     
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-24 mx-6 sm:mx-10'>
-            
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-24 mx-6 sm:mx-8'>
+            <ServiceCard/>
+            <ServiceCard/>
+            <ServiceCard/>
+            <ServiceCard/>
+            <ServiceCard/>
+            <ServiceCard/>
           </div>
         </section>
   )

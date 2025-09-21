@@ -20,7 +20,7 @@ function Header() {
 
   return (
     <nav className="w-full">
-      <ul className="hidden md:flex justify-end gap-16 font-bold px-10 py-8 items-center">
+      <ul className="hidden md:flex justify-end gap-10 font-bold px-10 py-8 items-center">
         <li className="mr-auto text-3xl font-bold cursor-pointer hover:scale-105 transition-all duration-300 active:scale-95 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
           Shoaib's Portfolio
         </li>

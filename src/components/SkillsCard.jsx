@@ -3,7 +3,7 @@ import { LuDatabase } from 'react-icons/lu'
 
 function SkillsCard({ name }) {
   return (
-    <div className='flex flex-col items-center w-full p-8 bg-slate-100 rounded-lg shadow-xl gap-8'>
+    <div className='flex flex-col items-center w-full p-8 bg-white rounded-2xl shadow-lg gap-8'>
         <div className='w-full flex gap-4 items-center'>
           <div className='bg-gradient-to-r from-blue-600 to bg-purple-700 rounded-2xl flex items-center justify-center'>
             <div className='p-4'>

@@ -11,7 +11,7 @@ import NeonButton from './components/NeonButton'
 function App() {
 
   return (
-    <div className='flex flex-col justify-center items-center mt-40'>
+    <div className='flex flex-col justify-center items-center'>
       {/* <LoginPage /> */}
         <HomePage />
         <SkillPage />
