@@ -1,3 +1,5 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -11,21 +13,59 @@ const navItems = [
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef();
+  const menuRef = useRef(null);
+  const desktopLinksRef = useRef([]);
+  const mobileMenuRef = useRef(null);
+  const mobileLinksRef = useRef([]);
 
   const navItemClass =
     "cursor-pointer hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent hover:scale-105 active:scale-95 transition-all duration-300 text-slate-900";
 
   // Close menu on outside click
   useEffect(() => {
-    function handleClickOutside(e) {
+    const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setMenuOpen(false);
       }
-    }
+    };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Initial GSAP animation for desktop nav
+  useGSAP(() => {
+    gsap.from(desktopLinksRef.current, {
+      y: 20,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.15,
+      ease: "power3.out",
+    });
+  }, []);
+
+  // Animate mobile menu open/close
+  useEffect(() => {
+    if (menuOpen) {
+      const tl = gsap.timeline();
+      tl.fromTo(
+        mobileMenuRef.current,
+        { y: -200, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.5, ease: "power3.out" }
+      ).fromTo(
+        mobileLinksRef.current,
+        { y: -20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out" },
+        "-=1.2"
+      );
+    } else {
+      gsap.to(mobileMenuRef.current, {
+        y: -200,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.in",
+      });
+    }
+  }, [menuOpen]);
 
   return (
     <header className="w-full relative shadow-md bg-white mb-6">
@@ -35,8 +75,8 @@ function Header() {
           <li className="mr-auto text-3xl font-bold cursor-pointer hover:scale-105 transition-all duration-300 active:scale-95 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
             <NavLink to="/">Shoaib's Portfolio</NavLink>
           </li>
-          {navItems.map(({ label, path }) => (
-            <li key={label}>
+          {navItems.map(({ label, path }, idx) => (
+            <li key={label} ref={(el) => (desktopLinksRef.current[idx] = el)}>
               <NavLink
                 to={path}
                 className={({ isActive }) =>
@@ -58,7 +98,7 @@ function Header() {
             aria-label="Toggle navigation"
             aria-expanded={menuOpen}
             className="text-purple-500 focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen((prev) => !prev)}
           >
             {menuOpen ? (
               <svg
@@ -90,20 +130,18 @@ function Header() {
 
         {/* Mobile Menu */}
         <ul
-          className={`absolute top-full left-0 w-full flex flex-col gap-4 font-bold px-8 py-6 bg-white/95 text-pink-500 shadow-lg md:hidden transform transition-transform duration-300 origin-top ${
-            menuOpen ? "scale-y-100" : "scale-y-0"
+          ref={mobileMenuRef}
+          className={`w-full absolute top-full left-0 rounded-b-3xl bg-gradient-to-b from-white to-emerald-50 flex justify-center items-center flex-col gap-1 font-bold py-4 text-pink-600 shadow-2xl md:hidden origin-top ${
+            !menuOpen ? "pointer-events-none" : "pointer-events-auto"
           }`}
         >
-          {navItems.map(({ label, path }) => (
+          {navItems.map(({ label, path }, idx) => (
             <li
               key={label}
-              className="py-2 px-4 rounded-lg hover:bg-purple-50 transition-all duration-300"
+              ref={(el) => (mobileLinksRef.current[idx] = el)}
+              className="py-2 px-4 rounded-lg hover:bg-purple-50"
             >
-              <NavLink
-                to={path}
-                className="block"
-                onClick={() => setMenuOpen(false)}
-              >
+              <NavLink to={path} className="block" onClick={() => setMenuOpen(false)}>
                 {label}
               </NavLink>
             </li>
