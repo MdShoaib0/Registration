@@ -4,6 +4,7 @@ import SkillPage from './pages/SkillPage';
 import ProjectPage from './pages/ProjectPage';
 import ServicePage from './pages/ServicePage';
 import ContactPage from './pages/ContactPage';
+import Footer from './pages/Footer'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,7 +14,6 @@ function App() {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
   useGSAP(() => {
-    // ✅ Creates ScrollSmoother instance
     const smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
@@ -22,7 +22,6 @@ function App() {
     });
 
     return () => {
-      // ✅ Cleanup on unmount
       smoother.kill();
     };
   });
@@ -35,6 +34,7 @@ function App() {
         <ProjectPage />
         <ServicePage />
         <ContactPage />
+        <Footer />
       </div>
     </div>
   );

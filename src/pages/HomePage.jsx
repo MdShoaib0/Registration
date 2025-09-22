@@ -4,10 +4,10 @@ import HeroSection from '../components/HeroSection'
 
 function HomePage() {
   return (
-    <div className='min-h-screen'>
+    <section id='home' className='min-h-screen'>
         <Header />
         <HeroSection />
-    </div>
+    </section>
   )
 }
 

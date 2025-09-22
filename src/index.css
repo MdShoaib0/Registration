@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+#smooth-wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+#smooth-content {
+  will-change: transform;
+}

@@ -24,7 +24,7 @@ function LoginPage() {
     };
 
     return (
-        <div className="w-full md:w-96 h-screen px-6 flex flex-col md:bg-slate-100 bg-slate-50 gap-8 py-20">
+        <section className="w-full md:w-96 h-screen px-6 flex flex-col md:bg-slate-100 bg-slate-50 gap-8 py-20">
             {/* Heading */}
             <div className="flex flex-col gap-6">
                 <h1 className="text-3xl font-bold text-slate-950 text-center">
@@ -106,7 +106,7 @@ function LoginPage() {
                 <p className="text-slate-600 font-medium">Don't have an account?</p>
                 <p className="text-blue-500 font-medium cursor-pointer">Sign Up</p>
             </div>
-        </div>
+        </section>
     );
 }
 
