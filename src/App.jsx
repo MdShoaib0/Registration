@@ -1,14 +1,9 @@
 import React from 'react';
-import HomePage from './pages/HomePage';
-import SkillPage from './pages/SkillPage';
-import ProjectPage from './pages/ProjectPage';
-import ServicePage from './pages/ServicePage';
-import ContactPage from './pages/ContactPage';
-import Footer from './pages/Footer'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import Header from './components/Header';
 
 function App() {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -29,12 +24,7 @@ function App() {
   return (
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        <HomePage />
-        <SkillPage />
-        <ProjectPage />
-        <ServicePage />
-        <ContactPage />
-        <Footer />
+        <Header />
       </div>
     </div>
   );

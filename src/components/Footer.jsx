@@ -23,7 +23,7 @@ function Footer() {
   ]
 
   return (
-    <footer id='' className='w-full flex flex-col py-20 justify-center items-center bg-gradient-to-r gap-8 from-blue-950 to-blue-900'>
+    <footer id='footer' className='w-full flex flex-col py-20 px-8 text-center justify-center items-center bg-gradient-to-r gap-8 from-blue-950 to-blue-900'>
         <p className='text-3xl font-bold text-white'>DevPortfolio</p>
         <p className='text-sm font-medium text-gray-50'>Crafting exceptional digital experiences with passion and precision</p>
         <div className='flex gap-6'>

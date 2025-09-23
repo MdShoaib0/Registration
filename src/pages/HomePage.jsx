@@ -6,8 +6,7 @@ function HomePage() {
   return (
     <section id='home' className='min-h-screen'>
         <Header />
-        <HeroSection />
-    </section>
+        <HeroSection />    </section>
   )
 }
 

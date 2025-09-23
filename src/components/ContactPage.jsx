@@ -1,7 +1,7 @@
 import { Star } from 'lucide-react'
 import React from 'react'
-import ContactForm from '../components/ContactForm'
-import ContactDetail from '../components/ContactDetail'
+import ContactForm from './childComponents/ContactForm'
+import ContactDetail from './childComponents/ContactDetail'
 
 function ContactPage() {
     return (

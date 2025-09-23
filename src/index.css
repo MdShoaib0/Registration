@@ -7,3 +7,7 @@
 #smooth-content {
   will-change: transform;
 }
+
+html {
+  scroll-behavior: smooth;
+}
